@@ -9,7 +9,7 @@ const Home = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        navigate(`/search?query=${query}`);
+        navigate(`/search-results?query=${query}`);
     };
 
     return (

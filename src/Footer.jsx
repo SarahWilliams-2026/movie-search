@@ -3,12 +3,12 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="footer">
-            <div class="footer__container">
+        <footer className="footer">
+            <div className="footer__container">
                 <figure>
-                    <img class="footer__logo" src={popcornLogo} alt="popcornLogo" />
+                    <img className="footer__logo" src={popcornLogo} alt="popcornLogo" />
                 </figure>
-                <div class="footer__info">
+                <div className="footer__info">
                     <p>Copyright © 2026 Sarah Williams</p>
                 </div>
             </div>
