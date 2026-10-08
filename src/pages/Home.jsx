@@ -14,18 +14,20 @@ const Home = () => {
 
     return (
         <div className="background__img">
-            <h1>Browse Our Movies</h1>
-            <form className="input__wrap" onSubmit={handleSearch}>
-                <input 
-                    type="text" 
-                    value={query} 
-                    onChange={(e) => setQuery(e.target.value)} 
-                    placeholder="Search for a movie..." 
-                />
-                <button className="search__btn" type="submit">
-                    <FontAwesomeIcon icon={faSearch} />
-                </button>
-            </form>
+            <div className="landing__content">
+                <h1>Browse Our Movies</h1>
+                <form className="input__wrap" onSubmit={handleSearch}>
+                    <input 
+                        type="text" 
+                        value={query} 
+                        onChange={(e) => setQuery(e.target.value)} 
+                        placeholder="Search for a movie..." 
+                    />
+                    <button className="search__btn" type="submit">
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

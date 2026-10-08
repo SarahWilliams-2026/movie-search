@@ -101,6 +101,9 @@ LANDING
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 .search__btn {
@@ -146,12 +149,8 @@ LANDING
 }
 
 .landing__content {
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  min-height: 100vh;
+  padding-top: 410px;
 }
 
 
