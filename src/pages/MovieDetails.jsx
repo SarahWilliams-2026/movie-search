@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import PopcornPiece from '../Assets/single.pop.png';
 import PopcornBucket from '../Assets/popcorn.bucket.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -31,24 +33,29 @@ const MovieDetails = () => {
     }
 
     return (
-        <div className="title">
-            <img
-                className="poster__img"
-                src={movie.Poster}
-                alt={`${movie.Title} poster`}
-            />
-            <div className="title__name">
-                <img className="bucket__icon" src={PopcornBucket} alt="" />
-                {movie.Title}
-            </div>
-            <p className="title__body">
-                {movie.Plot}
-            </p>
-            <div className="other__info">
-                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Year:</b> {movie.Year}</p>
-                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Rated:</b> {movie.Rated}</p>
-                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Genre:</b> {movie.Genre}</p>
-                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Runtime:</b> {movie.Runtime}</p>
+        <div className="movie-details">
+            <Link to="/search-results" className="back-button">
+                <FontAwesomeIcon icon={faArrowLeft} /> Back
+            </Link>
+            <div className="title">
+                <img
+                    className="poster__img"
+                    src={movie.Poster}
+                    alt={`${movie.Title} poster`}
+                />
+                <div className="title__name">
+                    <img className="bucket__icon" src={PopcornBucket} alt="" />
+                    {movie.Title}
+                </div>
+                <p className="title__body">
+                    {movie.Plot}
+                </p>
+                <div className="other__info">
+                    <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Year:</b> {movie.Year}</p>
+                    <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Rated:</b> {movie.Rated}</p>
+                    <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Genre:</b> {movie.Genre}</p>
+                    <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Runtime:</b> {movie.Runtime}</p>
+                </div>
             </div>
         </div>
     );

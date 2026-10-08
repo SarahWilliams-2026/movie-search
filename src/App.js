@@ -7,12 +7,11 @@ import Home from './pages/Home';
 import MovieDetails from './pages/MovieDetails';
 import Nav from './Nav';
 import Footer from './Footer'
-import SearchResults from './pages/SearchResults'
+import SearchResults from './pages/SearchResults';
 
 function App() {
   return (
     <Router>
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search-results" element={<SearchResults />} />

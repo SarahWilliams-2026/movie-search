@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
+import Placeholder from '../Assets/no-image.png'
 
 
 const SearchResults = () => {
@@ -50,7 +51,7 @@ const SearchResults = () => {
                     <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID} className="movie-card">
                         <img
                             className="movie-card__poster"
-                            src={movie.Poster}
+                            src={movie.Poster !== "N/A" ? movie.Poster : Placeholder}
                             alt={`${movie.Title} poster`}
                         />
                         <div className="movie-card__container">
