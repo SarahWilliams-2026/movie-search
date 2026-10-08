@@ -66,6 +66,7 @@ p {
 .white-text {
   color: rgb(140, 141, 142);
   display: inline-block;
+  padding-top: 75px;
 }
 
 .animated-underline {

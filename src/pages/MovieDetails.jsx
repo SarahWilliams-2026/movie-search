@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PopcornPiece from '../Assets/single.pop.png';
 import PopcornBucket from '../Assets/popcorn.bucket.png';
@@ -8,6 +8,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const MovieDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
     const [error, setError] = useState(null);
 
@@ -34,9 +35,9 @@ const MovieDetails = () => {
 
     return (
         <div className="movie-details">
-            <Link to="/search-results" className="back-button">
-                <FontAwesomeIcon icon={faArrowLeft} /> Back
-            </Link>
+            <button onClick={() => navigate(-1)} className="back__btn">
+                <FontAwesomeIcon icon="fa-solid fa-arrow-left" /> Back
+            </button>
             <div className="title">
                 <img
                     className="poster__img"
