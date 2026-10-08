@@ -1,10 +1,11 @@
 import React from 'react';
+import PopcornLogo from './Assets/popcorn__logo.jpg';
 
 const Nav = () => {
     return (
         <header className="navbar">
             <div className="logo">
-                <img className="logo" src="./Assets/popcorn__logo.jpg" alt="My Logo"/>
+                <img className="logo" src={PopcornLogo} alt="My Logo"/>
             </div>
             <nav className="nav__buttons">
                 <a href="#home" className="nav__button animated-underline"> Home</a>
