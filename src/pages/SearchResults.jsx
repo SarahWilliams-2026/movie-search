@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
+
 
 const SearchResults = () => {
     const location = useLocation();
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const sortMovies = (event) => {
         const selectedOption = event.target.value;
-
         if (selectedOption === "Newest") {
             setMovies((prevMovies) => [...prevMovies].sort((a, b) => b.Year - a.Year));
         } else if (selectedOption === "Oldest") {
@@ -36,19 +37,27 @@ const SearchResults = () => {
         <section id="searched">
             <div id="filter" className="content-wrapper justify-between">
                 <h2 className="search--info">
-                    <span className="white-text">Search results for "{location.search.split('=')[1]}"</span>
+                    <span className="white-text">Search results for "{decodeURIComponent(location.search.split('=')[1])}"</span>
                 </h2>
                 <select id="sort" onChange={sortMovies}>
-                    <option value="" disabled selected>Sort by year</option>
+                    <option value="" disabled defaultValue>Sort by year</option>
                     <option value="Newest">Newest</option>
                     <option value="Oldest">Oldest</option>
                 </select>
             </div>
-            <div>
-                {movies.map(movie => (
-                    <div key={movie.imdbID}>
-                        <h3>{movie.Title} ({movie.Year})</h3>
-                    </div>
+            <div className="movie-list">
+                {movies.slice(0, 6).map(movie => (
+                    <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID} className="movie-card">
+                        <img
+                            className="movie-card__poster"
+                            src={movie.Poster}
+                            alt={`${movie.Title} poster`}
+                        />
+                        <div className="movie-card__container">
+                            <h3>{movie.Title}</h3>
+                            <p><b>Year:</b> {movie.Year}</p>
+                        </div>
+                    </Link>
                 ))}
             </div>
         </section>

@@ -13,9 +13,9 @@ const Home = () => {
     };
 
     return (
-        <>
+        <div className="background__img">
             <h1>Browse Our Movies</h1>
-            <form onSubmit={handleSearch}>
+            <form className="input__wrap" onSubmit={handleSearch}>
                 <input 
                     type="text" 
                     value={query} 
@@ -26,7 +26,7 @@ const Home = () => {
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </form>
-        </>
+        </div>
     );
 };
 

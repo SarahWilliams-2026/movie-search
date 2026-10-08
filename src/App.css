@@ -22,7 +22,7 @@ html {
   background-repeat: no-repeat;
 }
 
-#landing {
+.background__img {
   min-height: 500px;
   background-image: url("./Assets/theater-stage.avif");
   background-size: cover;

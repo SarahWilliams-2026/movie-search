@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import PopcornPiece from '../Assets/single.pop.png';
+import PopcornBucket from '../Assets/popcorn.bucket.png';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -29,13 +31,24 @@ const MovieDetails = () => {
     }
 
     return (
-        <div className="movie-details">
-            <img className="movie-card__poster" src={movie.Poster} alt={`${movie.Title} poster`} />
-            <div className="movie-card__container">
-                <h3>{movie.Title}</h3>
-                <p><b>Rated:</b> {movie.Rated}</p>
-                <p><b>Year:</b> {movie.Year}</p>
-                <p><b>Plot:</b> {movie.Plot}</p>
+        <div className="title">
+            <img
+                className="poster__img"
+                src={movie.Poster}
+                alt={`${movie.Title} poster`}
+            />
+            <div className="title__name">
+                <img className="bucket__icon" src={PopcornBucket} alt="" />
+                {movie.Title}
+            </div>
+            <p className="title__body">
+                {movie.Plot}
+            </p>
+            <div className="other__info">
+                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Year:</b> {movie.Year}</p>
+                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Rated:</b> {movie.Rated}</p>
+                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Genre:</b> {movie.Genre}</p>
+                <p><img className="info__icon" src={PopcornPiece} alt="" /> <b>Runtime:</b> {movie.Runtime}</p>
             </div>
         </div>
     );
