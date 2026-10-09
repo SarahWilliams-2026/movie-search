@@ -24,7 +24,7 @@ const SearchResults = () => {
 
         const fetchMovies = async () => {
             setLoading(true);
-            const response = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=97a8a533`);
+            const response = await axios.get(`https://www.omdbapi.com/?s=${query}&apikey=97a8a533`);
             setMovies(response.data.Search || []);
             setLoading(false);
         };
